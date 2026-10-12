@@ -1,0 +1,71 @@
+# B-CARE evaluation datasets (4 datasets → 12 settings with 3 bases).
+# Raw data are NOT redistributed. Point --raw-root at locally obtained copies.
+
+semeval:
+  display_name: SemEval-2016 Task 6A
+  citation: Mohammad et al., SemEval-2016 Task 6
+  official_url: https://alt.qcri.org/semeval2016/task6/
+  raw_subdir: semeval2016
+  raw_test_file: test.csv
+  split: test
+  eval_n: 1249
+  exclude_targets: ["Donald Trump"]
+  expected_targets:
+    - Atheism
+    - Climate Change is a Real Concern
+    - Feminist Movement
+    - Hillary Clinton
+    - Legalization of Abortion
+  gold_map: {NEUTRAL: NONE}
+  labels: [FAVOR, AGAINST, NONE]
+  prompt_kind: ternary
+  manifest_sha256: 6f12604c6d06ceef2825758ba278f54ecc0a47307e1f28bf478514f99f15a4f5
+
+vaccines:
+  display_name: VaccineStance
+  citation: >
+    VaccineStance as used in MoPrO-SD (obtain from the dataset authors under
+    their license). No redistributable public mirror is packaged here.
+  official_url: NOT_PUBLICLY_VERIFIED
+  public_availability: NOT_VERIFIED
+  raw_subdir: vaccines
+  raw_test_file: test.csv
+  split: test
+  eval_n: 1000
+  gold_map: {favor: FAVOR, against: AGAINST, neutral: NONE}
+  labels: [FAVOR, AGAINST, NONE]
+  prompt_kind: ternary
+  manifest_sha256: 204c2cf2c9859e4d6e67ed4b649c8e27f6ff4bbd7d3f1318b3ce3ff749187f28
+
+covid:
+  display_name: COVID-19-Stance
+  citation: Glandt et al., ACL 2021
+  official_url: https://github.com/kh4l3d/COVID-19-Stance
+  raw_subdir: covid_19
+  raw_test_file: test.csv
+  split: test
+  eval_n: 800
+  expected_targets:
+    - Anthony Fauci
+    - Face Masks
+    - School Closures
+    - Stay at Home Orders
+  gold_map: {NEUTRAL: NONE}
+  labels: [FAVOR, AGAINST, NONE]
+  prompt_kind: ternary
+  manifest_sha256: 63e900b3e422397baf523cc1beaa56ff37fda01b8dd972f8ddc1f1fdb89d80ad
+
+pstance:
+  display_name: P-Stance
+  citation: Li et al., Findings ACL 2021
+  official_url: https://github.com/chuchun8/PStance
+  raw_subdir: PStance
+  split: test
+  eval_n: 2157
+  expected_targets:
+    - Bernie Sanders
+    - Joe Biden
+    - Donald Trump
+  labels: [FAVOR, AGAINST]
+  prompt_kind: binary
+  manifest_sha256: 7e14470feca9ec9c8292bd658d5727e81717a858ee361bffab5c65e9cbb67900

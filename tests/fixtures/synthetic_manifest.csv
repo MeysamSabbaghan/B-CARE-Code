@@ -1,0 +1,3 @@
+example_id,uid,dataset,target,text,text_sha256,gold,label_space,prompt_kind
+syn_001,syn_001,SemEval,Atheism,Synthetic tweet favoring atheism.,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,FAVOR,FAVOR|AGAINST|NONE,ternary
+syn_002,syn_002,SemEval,Climate Change is a Real Concern,Synthetic tweet against climate action.,bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,AGAINST,FAVOR|AGAINST|NONE,ternary

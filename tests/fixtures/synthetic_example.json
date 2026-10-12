@@ -1,0 +1,10 @@
+{
+  "synthetic": true,
+  "note": "Invented fixture for unit tests — NOT an experimental result.",
+  "example_id": "syn_0",
+  "target": "SyntheticTarget",
+  "text": "I strongly support SyntheticTarget.",
+  "gold": "FAVOR",
+  "evidence": {"FAVOR": 3, "AGAINST": 0, "NONE": 0},
+  "base_pred": "FAVOR"
+}

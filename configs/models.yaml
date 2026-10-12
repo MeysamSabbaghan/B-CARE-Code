@@ -1,0 +1,67 @@
+# Frozen model cards for the 12 dataset–model settings (4×3).
+
+bases:
+  Phi:
+    hf_model_id: microsoft/phi-4
+    revision: 2db69c1c3e91a05d2c64a3185acfbaf36f744e25
+    dtype: bfloat16
+    model_class: AutoModelForCausalLM
+  Mistral:
+    # Manuscript shorthand “Mistral Small 3.2 24B” ↔ Hub Instruct-2501 snapshot.
+    hf_model_id: mistralai/Mistral-Small-24B-Instruct-2501
+    revision: 9527884be6e5616bdd54de542f9ae13384489724
+    dtype: bfloat16
+    model_class: AutoModelForCausalLM
+    attn_implementation: eager  # original suite: SDPA nan mitigation
+  Gemma:
+    hf_model_id: google/gemma-3-27b-it
+    revision: 005ad3404e59d6023443cb575daa05336842228a
+    dtype: bfloat16
+    model_class: Gemma3ForConditionalGeneration
+    processor_class: Gemma3Processor
+
+verifier_openrouter:
+  model: meta-llama/llama-3.3-70b-instruct
+  temperature: 0.0
+  max_tokens_evidence: 80
+  max_tokens_edcv: 16
+  note: OpenRouter revision string is unknowable via the API.
+
+llamaprob_self_hosted:
+  hf_model_id: meta-llama/Llama-3.3-70B-Instruct
+  revision: 6f6073b423013f6a7d4d9f39144961bfbfbc386b
+  dtype: bfloat16
+  log_softmax_dtype: float32
+  scoring: teacher_forced_sequence_logprob_closed_set_softmax
+  risk: "1 - P(base_pred)"
+  hardware_note: Typically 2×A100-80GB (or equivalent multi-GPU host)
+
+nli:
+  hf_model_id: microsoft/deberta-v2-xlarge-mnli
+
+decoding:
+  base:
+    do_sample: false
+    temperature_config_unused: 0.2
+    max_new_tokens: 16
+    seed: 2026092701
+  same_model_evidence:
+    do_sample: false
+    temperature_config_unused: 0.0
+    max_new_tokens: 96
+    seed: 2026092701
+  uncertainty_sampling:
+    M: 5
+    temperature: 1.0
+    top_p: 0.9
+    max_new_tokens: 8
+    seed: 42
+  p_true:
+    num_fewshot: 20
+    num_brainstorm: 10
+    fewshot_seed: 2026092817
+    brainstorm_temperature: 1.0
+    fewshot_low_t_temperature: 0.1
+    # Matches original suite YAML risk_definition and p_true_official.py
+    # (jlko p_false_fixed = 1 - exp(log_p_A) = 1 - P(token " A")).
+    risk: "1 - exp(log_p_A)"

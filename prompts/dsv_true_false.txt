@@ -1,0 +1,4 @@
+Question: What is the stance of the text toward '{target}'?
+Text: {text}
+Proposed answer: {cand}
+Is the proposed answer correct? Answer True or False.

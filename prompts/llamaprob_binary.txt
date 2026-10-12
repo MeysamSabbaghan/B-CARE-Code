@@ -1,0 +1,11 @@
+Task: Classify the stance of the following text toward "{target}".
+
+Labels:
+FAVOR: The author is in FAVOR of {target}.
+AGAINST: The author is AGAINST {target}.
+
+TEXT:
+{text}
+
+Output format (exact): FAVOR or AGAINST.
+Constraint: Output only one label and nothing else.

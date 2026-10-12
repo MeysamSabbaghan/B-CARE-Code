@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bcare"
+version = "0.2.0"
+description = "B-CARE: Blind Classwise Assessment of Relative Evidence for stance error ranking"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.24,<3",
+  "scikit-learn>=1.3",
+  "PyYAML>=6.0",
+  "networkx>=3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+infer = [
+  "torch>=2.2",
+  "transformers>=4.44",
+  "accelerate>=0.33",
+  "sentencepiece>=0.2",
+  "requests>=2.31",
+  "python-dotenv>=1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["bcare*", "baselines*", "metrics*", "nli*", "evse_core*", "protocol*", "utils*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

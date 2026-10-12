@@ -1,0 +1,8 @@
+-r requirements.txt
+torch>=2.2
+transformers>=4.44
+accelerate>=0.33
+sentencepiece>=0.2
+protobuf>=4.25
+requests>=2.31
+python-dotenv>=1.0

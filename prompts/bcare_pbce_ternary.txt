@@ -1,0 +1,38 @@
+TARGET:
+{target}
+
+TEXT:
+{text}
+
+Evaluate the textual evidence for each possible stance of the TEXT toward the TARGET.
+
+Do not decide which stance label is correct overall.
+
+Instead, evaluate each hypothesis independently based only on evidence contained or clearly implied in the TEXT.
+
+FAVOR:
+Is there explicit or clearly implied evidence that the author supports, endorses, agrees with, or expresses a favorable position toward the TARGET?
+
+AGAINST:
+Is there explicit or clearly implied evidence that the author opposes, rejects, criticizes, disagrees with, or expresses an unfavorable position toward the TARGET?
+
+NONE:
+Is there evidence that the text does not establish either a FAVOR or AGAINST stance toward the TARGET?
+
+For each hypothesis return an evidence-strength score:
+
+0 = no supporting evidence
+1 = weak or ambiguous evidence
+2 = moderate evidence
+3 = strong and direct evidence
+
+Return JSON only:
+
+{
+  "FAVOR": 0,
+  "AGAINST": 0,
+  "NONE": 0
+}
+
+Do not output a final stance label.
+Do not explain your answer.

@@ -1,0 +1,24 @@
+Task: Evaluate whether a stance prediction is correct.
+
+Target:
+{target}
+
+Text:
+{text}
+
+Predicted stance:
+{base_prediction}
+
+The possible stance labels are FAVOR, AGAINST, and NONE.
+
+Determine how strongly the text supports the claim that the predicted stance
+is correct.
+
+Return an integer correctness score from 0 to 3:
+
+0 = the predicted stance is clearly incorrect
+1 = the predicted stance is probably incorrect
+2 = the predicted stance is probably correct
+3 = the predicted stance is clearly correct
+
+Output exactly one integer: 0, 1, 2, or 3.
